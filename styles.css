@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+:root{
+   --Black: #000;
+   --White: #fff;
+   --Blue: #0078AA;
+   --Background: #212324;
+   --Setings: #2C3333;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Roboto', sans-serif;
+}
+
+body{
+   /* background-color: var(--Black); */
+   height: 100vh;
+   background: linear-gradient(to right, #232526, #414345);
+}
+
+/* barra de navegacion */
+.nav_barr{
+   position: fixed;
+   width: 100%;
+   height: 60px;
+   z-index: 1;
+}
+
+.barr{
+   max-width: 1000px;
+   height: 100%;
+   margin: 0 auto;
+   list-style: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+li{
+   cursor: pointer;
+}
+
+.barr:hover .text_categories span, .barr:hover .text_add_cat span{
+   opacity: 90%;
+}
+
+.nav_logo{
+   height: 100%;
+}
+
+.content_logo{
+   height: 100%;
+   text-decoration: none;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   color: var(--White);
+}
+
+.content_logo p{
+   opacity: 90%;
+}
+
+.nav_logo img{
+   height: 50%;
+}
+
+.text_categories, .text_add_cat{
+   color: var(--White);
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.text_categories span, .text_add_cat span{
+   transition: opacity 0.4s;
+   opacity: 0;
+}
+
+.add_categorie{
+   z-index: 10;
+}
+
+.categories{
+   position: absolute;
+   top: 0;
+   width: 100%;
+   /* height: 500px; */
+   padding: 18px 0 60px 0;
+   color: var(--White);
+   transform: translateY(-100vh);
+   background-color: var(--Background);
+   transition: transform 0.5s;
+}
+
+.open_categorie{
+   transform: translateY(0);
+}
+
+.close_categories{
+   width: 100%;
+   text-align: center;
+}
+
+.close_categories span{
+   cursor: pointer;
+   margin-bottom: 30px;
+}
+
+.list_categories{
+   list-style: none;
+   max-width: 1000px;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 60px 20px;
+}
+
+.list_categories li{
+   width: 184px;
+   height: 100%;
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+}
+
+.categorie{
+   background-color: #0073a0;
+   cursor: pointer;
+   width: 100%;
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 14px;
+   z-index: 1;
+}
+
+.categorie p{
+   font-weight: 700;
+}
+
+.categorie span{
+   opacity: 94%;
+}
+
+.cat_config{
+   background-color: var(--Setings);
+   width: 80%;
+   height: 58px;
+   position: absolute;
+   padding: 4px 0;
+   border-radius: 0 0 8px 8px;
+   transition: 0.5s;
+}
+
+.list_categories li:hover .cat_config{
+   transform: translateY(100%);
+}
+
+.cat_config p{
+   width: 100%;
+   font-size: 80%;
+   padding: 1px 10px;
+   display: flex;
+   align-items: center;
+   gap: 4px;
+}
+
+.cat_config p:hover{
+   background-color: var(--Blue);
+}
+
+.cat_config p span{
+   font-size: 100%;
+}
+
+
+
+/* Constenido */
+.container{
+   /* background-color: aliceblue; */
+   padding-top: 100px;
+   max-width: 1000px;
+   margin: 0 auto;
+   display: grid;
+   gap: 40px;
+   grid-template-columns: repeat(6, 1fr);
+}
+
+.web_page{
+   position: relative;
+   align-self: center;
+   justify-self: center;
+   padding: 12px;
+   width: 100%;
+   border-radius: 10px;
+   background-color: #212324;
+   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.397);
+}
+
+.contain_img{
+   cursor: pointer;
+   width: 100%;
+}
+
+.contain_img img{
+   width: 100%;
+   border-radius: 10px;
+}
+
+.web_title{
+   cursor: pointer;
+   text-align: center;
+   color: var(--White);
+   margin-top: 6%;
+   font-size: 90%;
+   opacity: 90%;
+}
+
+.btn_web{
+   cursor: pointer;
+   transform: scale(0);
+   position: absolute;
+   border: none;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   top: -18px;
+   right: -18px;
+   transition: transform 0.2s;
+   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.308);
+}
+
+.web_page:hover .btn_web{
+   transform: scale(1);
+}
+
+.web_page a{
+   text-decoration: none;
+}
+
+.btn_active{
+   transform: scale(1);
+}
+
+.settings{
+   position: absolute;
+   padding: 6px 0;
+   right: -100%;
+   z-index: 2;
+   border-radius: 4px;
+   background-color: #2C3333;
+   transform: scale(0);
+   transition: transform 0.2s;
+   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.308);
+}
+
+.settings p{
+   display: flex;
+   cursor: pointer;
+   align-items: center;
+   gap: 4px;
+   height: 24px;
+   opacity: 90%;
+   padding: 0 8px;
+   font-size: 86%;
+   color: var(--White);
+}
+
+.settings p:hover{
+   background-color: #0073a0;
+}
+
+.settings span{
+   font-size: 18px;
+}
+
+.active_settings{
+   transform: scale(1);
+}
+
+
+.config{
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: scale(0);
+   transition: transform 0.5s;
+   z-index: 20;
+}
+
+.config_card{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 400px;
+   color: var(--White);
+   padding: 26px;
+   border-radius: 6px;
+   background-color: #212324;
+   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.514);
+}
+
+.config_title{
+   margin-bottom: 24px;
+   font-weight: 700;
+}
+
+.config_input{
+   font-size: 80%;
+   opacity: 80%;
+   margin-bottom: 6px;
+}
+
+.config_card input{
+   outline: none;
+   margin-bottom: 20px;
+   background-color: transparent;
+   border: var(--White) 1px solid;
+   border-radius: 4px;
+   height: 36px;
+   color: var(--White);
+   opacity: 60%;
+   padding: 10px 18px;
+   font-size: 80%;
+}
+
+input.color_input{
+   padding: 0;
+}
+
+.config_card input:hover{
+   border: #3AB4F2 4px solid;
+   padding: 10px 15px;
+}
+
+input.color_input:hover{
+   padding: 0;
+}
+
+.config_buttons{
+   margin-top: auto;
+   align-self: flex-end;
+   display: flex;
+   gap: 14px;
+}
+
+.button_cancel{
+   cursor: pointer;
+   width: 85px;
+   height: 30px;
+   color: var(--White);
+   border-radius: 20px;
+   background-color: transparent;
+   border: var(--White) 1px solid;
+   opacity: 70%;
+}
+
+.button_cancel:hover{
+   opacity: 100%;
+}
+
+.button_cancel span{
+   font-size: 90%;
+}
+
+.button_save{
+   cursor: pointer;
+   width: 85px;
+   height: 30px;
+   color: var(--White);
+   border: none;
+   border-radius: 20px;
+   background-color: #0078AA;
+}
+
+.config_close{
+   cursor: pointer;
+   position: absolute;
+   border-radius: 50%;
+   top: 20px;
+   right: 20px;
+   transition: background-color 0.2s;
+}
+
+.config_close:hover{
+   background-color: rgba(255, 255, 255, 0.450);
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Links note</title>
+   <link rel="icon" type="image/png" sizes="23x23" href="./imgs/link-icon.png">
+   <link rel="stylesheet" href="./styles.css">
+   <script src="./main.js" type="module" defer></script>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+   <nav class="nav_barr">
+      <ul class="barr">
+         <li class="nav_logo">
+            <a class="content_logo" href="#config">
+               <img src="./imgs/link-icon.png" alt="logo">
+               <p>Links note</p>
+            </a>
+         </li>
+         <!-- <li class="categories">
+            <h4>Generales</h4>
+            <span>4 enlaces</span>
+         </li> -->
+         <li id="open_categories" class="nav_categories">
+            <p class="text_categories"><i class="material-symbols-outlined">menu</i> <span>Categorías</span></p>
+         </li>
+         <li class="add_categorie">
+            <p class="text_add_cat"><i class="material-symbols-outlined">add</i> <span>Agregar categoría</span></p>
+         </li>
+         
+      </ul>
+
+      <div id="categories" class="categories">
+         <div class="close_categories"><span id="close_categories" class="material-symbols-outlined">close</span></div>
+         <ul class="list_categories">
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+            <li>
+               <div class="cat_config">
+                  <p id="edit_cat"><span class="material-symbols-outlined">edit</span> Editar categoría</p>
+                  <p id="edit_cat"><span class="material-symbols-outlined">add</span> Agregar web</p>
+                  <p><span class="material-symbols-outlined">delete</span> Eliminar</p>
+               </div>
+               <div class="categorie">
+                  <h4>Generales</h4>
+                  <span>4 enlaces</span>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <div id="container" class="container">
+   </div>
+   <div id="config" class="config">
+      <form class="config_card">
+         <p class="config_title">Editar sitio web</p>
+
+         <label class="config_input" for="name">Nombre</label>
+         <input type="text" id="name" name="name" placeholder="Nombre" value="Web" required>
+
+         <label class="config_input" for="url">Url</label>
+         <input type="url" id="url" name="url" placeholder="Url" value="https://mail.google.com/mail/u/0/#inbox" required>
+
+         <label class="config_input" for="position">Posición</label>
+         <input type="number" min="1" max="20" id="position" name="position" placeholder="Posición" value="2" required>
+
+         <div class="config_buttons">
+            <button class="button_cancel" type="button">Cancelar</button>
+            <button class="button_save" type="submit">Guardar</button>
+         </div>
+         <span id="config_close" class="material-symbols-outlined config_close">close</span>
+      </form>
+   </div>
+
+</body>
+</html>
