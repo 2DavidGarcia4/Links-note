@@ -1,9 +1,8 @@
 import LinksNote from "./categories.js";
-console.log(LinksNote)
 let categories = LinksNote.categories
 
 function insertWebs(document){
-   document.innerHTML = categories.map(mc=> mc.webs.sort((a,b)=> a.position - b.position).map(m=> `<div class="web_page" title="${m.description}" data-catId="${mc.id}" data-id="${m.id}">
+   document.innerHTML = categories.sort((a,b)=> a.position - b.position).map((mc, psc)=> mc.webs.sort((a,b)=> a.position - b.position).map(m=> `<div class="web_page category-${psc+1}" title="${m.description}" data-catId="${mc.id}" data-id="${m.id}">
    <button class="btn_web">
       <span class="material-symbols-outlined btn_icon">settings</span>
    </button>
@@ -12,12 +11,14 @@ function insertWebs(document){
       <p id="delete_web"><span class="material-symbols-outlined">delete</span> Eliminar</p>
    </div>
    <a class="contain_img" href="${m.url}" target="_blank">
-      <img src="https://www.google.com/s2/favicons?domain=${m.url}" alt="${m.name}">
+   <img src="https://www.google.com/s2/favicons?domain=${m.url}" alt="${m.name}">
    </a>
    <a href="${m.url}" target="_blank" title="${m.description}">
-      <p class="web_title">${m.name}</p>
+   <p class="web_title">${m.name}</p>
    </a>
    </div>`).join("")).join("")
+   // <img src="${m.url}/favicon.ico" alt="${m.name}">
+   // <img src="https://www.google.com/s2/favicons?domain=${m.url}" alt="${m.name}">
 }
 
 function editWeb(catId, webId, name, desc, url, pos){

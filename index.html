@@ -11,23 +11,29 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+   <div id="load" class="load">
+      <img id="load_img" src="./imgs/link-icon.png" alt="logo">
+   </div>
+
    <nav class="nav_barr">
       <ul class="barr">
-         <li class="nav_logo">
+         <li class="nav_logo" data-filter="all">
             <a class="content_logo" href="#config">
                <img src="./imgs/link-icon.png" alt="logo">
                <p>Links note</p>
             </a>
          </li>
-         <!-- <li class="categories">
-            <h4>Generales</h4>
-            <span>4 enlaces</span>
-         </li> -->
          <li id="open_categories" class="nav_categories">
             <p class="text_categories"><i class="material-symbols-outlined">menu</i> <span>Categorías</span></p>
          </li>
          <li class="add_categorie">
             <p class="text_add_cat"><i class="material-symbols-outlined">add</i> <span>Agregar categoría</span></p>
+         </li>
+         <li id="nav_switch" class="nav_switch">
+            <div id="switch_circle" class="switch_circle">
+               <i id="teme_mode" class="material-symbols-outlined">light_mode</i>
+               <!-- dark_mode -->
+            </div>
          </li>
          
       </ul>
@@ -118,7 +124,6 @@
 
          <label class="config_input" for="position">Posición</label>
          <input type="number" min="1" max="20" id="position" name="position" placeholder="Posición" value="2" required>
-
          <div class="config_buttons">
             <button class="button_cancel" type="button">Cancelar</button>
             <button class="button_save" type="submit">Guardar</button>
@@ -127,5 +132,6 @@
       </form>
    </div>
 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

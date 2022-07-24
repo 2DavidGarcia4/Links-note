@@ -3,8 +3,14 @@
    --Black: #000;
    --White: #fff;
    --Blue: #0078AA;
-   --Background: #212324;
+   --Background-ligt: #e6f3ea;
+   --Background-dark: #161515;
+   --Dark-card: #212324;
+   --Ligt-card: #D1D1D1;
+   --Ligt-switch: #DFDFDE;
+   --Dark-switch: ;
    --Setings: #2C3333;
+   --Nav-dark: #0f0e0e;
 }
 
 *{
@@ -15,10 +21,37 @@
 }
 
 body{
-   /* background-color: var(--Black); */
    height: 100vh;
-   background: linear-gradient(to right, #232526, #414345);
+   background-color: var(--Background-ligt);
+   transition: background-color 0.5s;
 }
+
+.dark_teme{
+   background-color: var(--Background-dark);
+}
+
+/* loaded */
+.load{
+   position: fixed;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   z-index: 100;
+   background-color: var(--Background-ligt);
+}
+
+.dark_teme .load{
+   background-color: var(--Background-dark);
+}
+
+.load img{
+   width: 160px;
+   transform: translateY(-100px);
+   transition: transform 1s;
+}
+
 
 /* barra de navegacion */
 .nav_barr{
@@ -26,6 +59,16 @@ body{
    width: 100%;
    height: 60px;
    z-index: 1;
+   transition: background-color 0.6s, box-shadow 0.4s;
+}
+
+.nav_active{
+   background-color: var(--White);
+   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.100);
+}
+
+.dark_teme .nav_active{
+   background-color: var(--Nav-dark);
 }
 
 .barr{
@@ -40,6 +83,7 @@ body{
 
 li{
    cursor: pointer;
+   z-index: 10;
 }
 
 .barr:hover .text_categories span, .barr:hover .text_add_cat span{
@@ -56,10 +100,14 @@ li{
    display: flex;
    align-items: center;
    gap: 8px;
+   color: var(--Black);
+}
+
+.dark_teme .content_logo{
    color: var(--White);
 }
 
-.content_logo p{
+.dark_teme .content_logo p{
    opacity: 90%;
 }
 
@@ -68,10 +116,14 @@ li{
 }
 
 .text_categories, .text_add_cat{
-   color: var(--White);
+   color: var(--Black);
    display: flex;
    align-items: center;
    gap: 8px;
+}
+
+.dark_teme .text_categories, .dark_teme .text_add_cat{
+   color: var(--White);
 }
 
 .text_categories span, .text_add_cat span{
@@ -79,20 +131,62 @@ li{
    opacity: 0;
 }
 
-.add_categorie{
-   z-index: 10;
+.nav_switch{
+   width: 54px;
+   height: 27px;
+   border-radius: 20px;
+   color: var(--Black);
+   padding: 3px;
+   transition: background-color 0.5s;
 }
 
+.dark_teme .nav_switch{
+   color: var(--White);
+}
+
+.switch_circle{
+   height: 100%;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: transform 0.5s, background-color 0.5s;
+   background-color: var(--White);
+}
+
+.dark_teme .switch_circle{
+   background-color: var(--Nav-dark);
+}
+
+.barr:hover .nav_switch{
+   background-color: var(--Ligt-switch);
+}
+
+.dark_teme .barr:hover .nav_switch{
+   background-color: var(--Dark-card);
+}
+
+.switch_circle i{
+   font-size: 18px;
+}
+
+
+/* categories */
 .categories{
    position: absolute;
    top: 0;
    width: 100%;
-   /* height: 500px; */
-   padding: 18px 0 60px 0;
+   padding: 18px 0 62px 0;
    color: var(--White);
    transform: translateY(-100vh);
-   background-color: var(--Background);
+   background-color: var(--White);
+   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.400);
    transition: transform 0.5s;
+}
+
+.dark_teme .categories{
+   background-color: var(--Nav-dark);
 }
 
 .open_categorie{
@@ -102,6 +196,11 @@ li{
 .close_categories{
    width: 100%;
    text-align: center;
+   color: var(--Black);
+}
+
+.dark_teme .close_categories{
+   color: var(--White);
 }
 
 .close_categories span{
@@ -129,15 +228,17 @@ li{
 }
 
 .categorie{
-   background-color: #0073a0;
    cursor: pointer;
-   width: 100%;
-   padding: 10px;
    display: flex;
-   flex-direction: column;
    align-items: center;
-   border-radius: 14px;
+   flex-direction: column;
    z-index: 1;
+   width: 100%;
+   height: 100%;
+   padding: 10px;
+   border-radius: 14px;
+   background-color: #0073a0;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.500);
 }
 
 .categorie p{
@@ -149,13 +250,18 @@ li{
 }
 
 .cat_config{
-   background-color: var(--Setings);
+   background-color: var(--Ligt-card);
    width: 80%;
    height: 58px;
    position: absolute;
    padding: 4px 0;
    border-radius: 0 0 8px 8px;
    transition: 0.5s;
+   box-shadow: -1px 3px 8px rgba(0, 0, 0, 0.600);
+}
+
+.dark_teme .cat_config{
+   background-color: var(--Dark-card);
 }
 
 .list_categories li:hover .cat_config{
@@ -163,12 +269,17 @@ li{
 }
 
 .cat_config p{
-   width: 100%;
-   font-size: 80%;
-   padding: 1px 10px;
    display: flex;
    align-items: center;
    gap: 4px;
+   width: 100%;
+   font-size: 80%;
+   padding: 1px 10px;
+   color: var(--Black);
+}
+
+.dark_teme .cat_config p{
+   color: var(--White);
 }
 
 .cat_config p:hover{
@@ -183,24 +294,35 @@ li{
 
 /* Constenido */
 .container{
-   /* background-color: aliceblue; */
+   /* background-color: rgb(39, 131, 212); */
    padding-top: 100px;
    max-width: 1000px;
    margin: 0 auto;
-   display: grid;
-   gap: 40px;
-   grid-template-columns: repeat(6, 1fr);
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 20px;
 }
 
 .web_page{
    position: relative;
    align-self: center;
    justify-self: center;
-   padding: 12px;
-   width: 100%;
+   padding: 10px;
+   width: 107.5px;
    border-radius: 10px;
-   background-color: #212324;
-   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.397);
+   transition: background-color 0.5s;
+   background-color: var(--Ligt-card);
+   box-shadow: -3px 4px 10px rgba(0, 0, 0, 0.500);
+}
+
+.dark_teme .web_page{
+   background-color: var(--Dark-card);
+}
+
+.web_page:active{
+   border: var(--Blue) 3px solid;
+   box-shadow: -3px 4px 10px rgba(0, 119, 170, 0.500);
 }
 
 .contain_img{
@@ -216,9 +338,13 @@ li{
 .web_title{
    cursor: pointer;
    text-align: center;
-   color: var(--White);
+   color: var(--Black);
    margin-top: 6%;
-   font-size: 90%;
+   font-size: 76%;
+}
+
+.dark_teme .web_title{
+   color: var(--White);
    opacity: 90%;
 }
 
@@ -251,13 +377,17 @@ li{
 .settings{
    position: absolute;
    padding: 6px 0;
-   right: -100%;
+   right: -140px;
    z-index: 2;
    border-radius: 4px;
-   background-color: #2C3333;
+   background-color: var(--Ligt-card);
    transform: scale(0);
    transition: transform 0.2s;
    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.308);
+}
+
+.dark_teme .settings{
+   background-color: var(--Dark-card);
 }
 
 .settings p{
@@ -266,10 +396,14 @@ li{
    align-items: center;
    gap: 4px;
    height: 24px;
-   opacity: 90%;
    padding: 0 8px;
    font-size: 86%;
+   color: var(--Black);
+}
+
+.dark_teme .settings p{
    color: var(--White);
+   opacity: 90%;
 }
 
 .settings p:hover{
@@ -304,11 +438,16 @@ li{
    display: flex;
    flex-direction: column;
    width: 400px;
-   color: var(--White);
+   color: var(--Black);
    padding: 26px;
    border-radius: 6px;
-   background-color: #212324;
+   background-color: var(--Ligt-card);
    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.514);
+}
+
+.dark_teme .config_card{
+   color: var(--White);
+   background-color: var(--Dark-card);
 }
 
 .config_title{
@@ -318,21 +457,30 @@ li{
 
 .config_input{
    font-size: 80%;
-   opacity: 80%;
    margin-bottom: 6px;
+}
+
+.dark_teme .config_input{
+   opacity: 86%;
 }
 
 .config_card input{
    outline: none;
    margin-bottom: 20px;
    background-color: transparent;
-   border: var(--White) 1px solid;
+   border: var(--Black) 1px solid;
    border-radius: 4px;
    height: 36px;
-   color: var(--White);
-   opacity: 60%;
+   color: var(--Black);
+   opacity: 96%;
    padding: 10px 18px;
    font-size: 80%;
+}
+
+.dark_teme input{
+   border: var(--White) 1px solid;
+   color: var(--White);
+   opacity: 60%;
 }
 
 input.color_input{
@@ -359,11 +507,17 @@ input.color_input:hover{
    cursor: pointer;
    width: 85px;
    height: 30px;
-   color: var(--White);
+   opacity: 80%;
+   color: var(--Black);
    border-radius: 20px;
    background-color: transparent;
+   border: var(--Black) 1px solid;
+}
+
+.dark_teme .button_cancel{
+   opacity: 60%;
+   color: var(--White);
    border: var(--White) 1px solid;
-   opacity: 70%;
 }
 
 .button_cancel:hover{
@@ -378,10 +532,14 @@ input.color_input:hover{
    cursor: pointer;
    width: 85px;
    height: 30px;
-   color: var(--White);
+   color: var(--Black);
    border: none;
    border-radius: 20px;
    background-color: #0078AA;
+}
+
+.dark_teme .button_save{
+   color: var(--White);
 }
 
 .config_close{
@@ -394,5 +552,9 @@ input.color_input:hover{
 }
 
 .config_close:hover{
+   background-color: rgba(41, 41, 41, 0.473);
+}
+
+.dark_teme .config_close:hover{
    background-color: rgba(255, 255, 255, 0.450);
 }
